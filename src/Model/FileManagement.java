@@ -42,7 +42,9 @@ public class FileManagement {
         }
         return message;
     }
-    
+    public void FielDelet(String name_file) {
+        String message ="";
+    }
     
     
     
