@@ -4,6 +4,9 @@ package Model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 public class FileManagement {
     
     
@@ -35,12 +38,17 @@ public class FileManagement {
                 this.file.createNewFile();
                 message = "Archivo creado";
             } catch (IOException ex) {
-                ex.printStackTrace();
+               ex.printStackTrace();
             }
         }else{
             message="El archivo ya existe";
         }
         return message;
+    }
+    
+    public void append_to_file(String lineToAppend) throws IOException{
+        byte[] byteArr = lineToAppend.getBytes();
+        Files.write(Paths.get(getName_file()), byteArr, StandardOpenOption.APPEND);
     }
     public void FielDelet(String name_file) {
         String message ="";
